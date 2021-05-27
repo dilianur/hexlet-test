@@ -1,0 +1,24 @@
+{
+    "name": "user/test_hexlet",
+    "description": "my_testProject",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "dilianur",
+            "email": "dilianur.kanboto@gmail.com"
+        }
+    ],
+    "require": {
+        "php-ds/php-ds": "^1.3",
+        "tightenco/collect": "^8.34",
+        "nesbot/carbon": "^2.48",
+        "symfony/string": "^5.2"
+    },
+    "autoload": {
+        "files": [
+            "src/test.php",
+            "src/collect.php",
+            "src/carbon.php"
+        ]
+    }
+}
