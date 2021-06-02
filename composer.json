@@ -12,7 +12,8 @@
         "php-ds/php-ds": "^1.3",
         "tightenco/collect": "^8.34",
         "nesbot/carbon": "^2.48",
-        "symfony/string": "^5.2"
+        "symfony/string": "^5.2",
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "files": [
