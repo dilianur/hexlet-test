@@ -74,37 +74,37 @@ foreach ($period as $key => $date) {
 
 echo implode(', ', $dates); // 04-29, 04-30, 05-01, 05-02, 05-01, 04-30, 04-29
 print_r("<br>");
-class Booking
-{
-    private $book = [];
+// class Booking1111
+// {
+//     private $book = [];
 
-    public function book($begin, $end)
-    {
-        $firstBegin = new Carbon($begin);
-        $twoEnd = new Carbon($end);
-        if ($this->canBook($firstBegin, $twoEnd)) {
-            $this->book[] = [$firstBegin, $twoEnd];
-            return true;
-        }
-        return false;
-    }
-    function canBook($begin, $end)
-    {
-        if ($begin >= $end) {
-            return false;
-        }
-        foreach ($this->book as [$bookbegin, $bookEnd]) {
-            $interest = $begin < $bookEnd && $end > $bookbegin;
-            if ($interest) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
-$b = new Booking();
-print_r($b->book('10-11-2008', '12-11-2008'));
-print_r("<br>");
-echo mb_strlen('привет');
-print_r("<br>");
-echo strpos('start', 'st') === 0;
+//     public function book($begin, $end)
+//     {
+//         $firstBegin = new Carbon($begin);
+//         $twoEnd = new Carbon($end);
+//         if ($this->canBook($firstBegin, $twoEnd)) {
+//             $this->book[] = [$firstBegin, $twoEnd];
+//             return true;
+//         }
+//         return false;
+//     }
+//     function canBook($begin, $end)
+//     {
+//         if ($begin >= $end) {
+//             return false;
+//         }
+//         foreach ($this->book as [$bookbegin, $bookEnd]) {
+//             $interest = $begin < $bookEnd && $end > $bookbegin;
+//             if ($interest) {
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+// }
+// $b = new Booking1111();
+// print_r($b->book('10-11-2008', '12-11-2008'));
+// print_r("<br>");
+// echo mb_strlen('привет');
+// print_r("<br>");
+// echo strpos('start', 'st') === 0;

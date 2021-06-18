@@ -47,6 +47,7 @@ function reverse(Node $list)
             //Реализуйте функцию reverse($list), которая принимает на вход односвязный 
             //список и переворачивает его. По условии задачи так, хотя рузультата не увидила
             //в $first это null слили обььект Node, с методами value and next в цикле
+            //таким образом поменяли местами в null элементы, а в элементы null
             $first = new Node($two->getValue(), $first);
             //а в $list слили getNext в него присвоен null
             $two = $two->getNext();
@@ -116,6 +117,7 @@ function getLinks(array $tags)
         'a' => 'href',
         'link' => 'href'
     ];
+    //функця array_filter фильтрует массив, подходящие выводит
     $arrays = array_filter($tags, function ($tag) use ($mapping) {
         //здесь как я поняла, выбираем подходящие ключи и значения к name
         return array_key_exists($tag['name'], $mapping);
@@ -127,6 +129,7 @@ function getLinks(array $tags)
         // print_r($mapping[$tag['name']]);
         return $tag[$attribute];
     }, $arrays);
+    //выбирает все значения в массиве функция array_values
     return array_values($filtered);
 }
 print_r(getLinks([
@@ -135,3 +138,34 @@ print_r(getLinks([
     ['name' => 'link', 'href' => 'hexlet.io/assets/style.css'],
     ['name' => 'h1']
 ]));//array_column
+
+//Реализуйте функцию reverse($list), 
+//которая принимает на вход односвязный список и переворачивает его.
+//полиморфизм
+function reverse(Node $list)
+{
+    $first = null;
+    $two = $list;
+    while($two) {
+        $first = new Node($first->getValue(), $first);
+        $two = $two->getNext();
+    }
+    return $two;
+}
+//диспетчеризация поключу, в значениях будут функции
+//сформируем массив с фамилиями наших пользователей
+//главное условие для девушек берется девичья фамилия
+$lastname = array_map(function($user) {
+    if ($user->gender === 'female') {
+        return $user->maidenName();
+    }
+    return $user->LastName();
+}, $users);
+//теперь эту задачу решать будем при помощи диспетчеризации по ключу
+$mapping = [
+    //здесь ключ female, каллбак функция обращается по обьекту к методуобращается
+    'female' =>
+    fn($user) => $user->maidenName(),
+    'male' =>
+    fn($user) => $user->LastName();
+];
